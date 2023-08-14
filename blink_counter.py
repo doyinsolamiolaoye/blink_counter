@@ -50,6 +50,9 @@ while True:
 
     success, frame = cap.read()
 
+    if not success: #accomodates when the last frame is reached
+        break
+
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = detector(frame_gray)
     
